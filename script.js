@@ -43,9 +43,9 @@ $(document).ready(function(){
 	$("button").click(function(){
 		//disable button START
 		$("button").attr("disabled","true");
-		$("img").slideUp();
+		$("img").fadeOut("slow");
 		$("td").click(function(){
-			$(this).children().slideDown();
+			$(this).children().fadeIn("slow");
 			numSelectedImages = numSelectedImages + 1;
 			selectedImgSrc = $(this).children().attr("src");
 			selectedImgCol = $(this).index();
@@ -56,7 +56,7 @@ $(document).ready(function(){
 					alert("You may not click the same image at the same position twice");
 					chances = chances - 1;
 					$("#chances").text(chances);
-					$(this).children().slideUp();
+					$(this).children().fadeOut("slow");
 					resetVariables()
 					checkGameResult()
 				}else {
@@ -69,8 +69,8 @@ $(document).ready(function(){
 						alert("You guess the image WRONG");
 						chances = chances - 1;
 						$("#chances").text(chances);
-						$("tr:eq("+firstSelectedImgRow+") td:eq("+firstSelectedImgCol+")").children().slideUp();
-						$("tr:eq("+selectedImgRow+") td:eq("+selectedImgCol+")").children().slideUp();
+						$("tr:eq("+firstSelectedImgRow+") td:eq("+firstSelectedImgCol+")").children().fadeOut("slow");
+						$("tr:eq("+selectedImgRow+") td:eq("+selectedImgCol+")").children().fadeOut("slow");
 						resetVariables()
 						checkGameResult()
 					}
