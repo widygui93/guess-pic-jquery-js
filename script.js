@@ -62,6 +62,12 @@ $(document).ready(function(){
 				}else {
 					if(firstSelectedImgSrc == selectedImgSrc){
 						alert("You guess the image CORRECT");
+						//make cells cannot be clicked anymore
+						$("tr:eq("+firstSelectedImgRow+") td:eq("+firstSelectedImgCol+")").css("pointer-events", "none");
+						$("tr:eq("+selectedImgRow+") td:eq("+selectedImgCol+")").css("pointer-events", "none");
+						//make image become fade in half
+						$("tr:eq("+firstSelectedImgRow+") td:eq("+firstSelectedImgCol+")").children().fadeTo("slow", 0.5);
+						$("tr:eq("+selectedImgRow+") td:eq("+selectedImgCol+")").children().fadeTo("slow", 0.5);
 						numOfCorrectImages = numOfCorrectImages + 1;
 						resetVariables()
 						checkGameResult()
